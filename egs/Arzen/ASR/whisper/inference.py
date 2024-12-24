@@ -52,18 +52,22 @@ python whisper/decode.py \
   --beam-size 10 \
   --max-duration 300
   
+  
 # Amir
 python whisper/decode.py \
   --exp-dir whisper/exp_small \
   --model-name small \
-  --epoch 1 \
+  --epoch 0 \
   --avg 1 \
   --manifest-dir data/fbank_whisper_small \
-  --beam-size 10 \
+  --beam-size 1 \
   --max-duration 800
   
-python whisper/inference.py   --exp-dir whisper/exp_large_v3   --model-name large-v3   --epoch 15   --manifest-dir data/fbank_whisper    --max-duration 300 --avg 1 --remove-whisper-encoder-input-length-restriction False
+python whisper/inference.py   --exp-dir whisper/exp_large_v3   --model-name large-v3   --epoch 15   --manifest-dir data/fbank_whisper    --max-duration 400 --avg 1 --remove-whisper-encoder-input-length-restriction False
+
+python whisper/inference.py   --exp-dir whisper/exp_large_v3   --model-name large-v3   --epoch 0   --manifest-dir data/fbank_whisper    --max-duration 300 --remove-whisper-encoder-input-length-restriction False
 """
+
 
 import argparse
 import logging
